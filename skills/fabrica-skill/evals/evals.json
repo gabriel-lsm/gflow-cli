@@ -1,0 +1,33 @@
+{
+  "skill_name": "tiktok-fabrica-ia",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Gere um vídeo do TikTok estilo fábrica com IA para o produto 'Perfume de Feromônios Atraente'. O vídeo deve ter a imagem da fábrica de referência e o vídeo do influencer.",
+      "expected_output": "Um script em JSON com os prompts corretos substituindo o nome do produto '[PRODUTO]' e as duas copys baseadas na pesquisa do perfume de feromônios.",
+      "files": [
+        "evals/files/img_referencia_fabrica.jpeg",
+        "evals/files/img_referencia_ugc.jpeg"
+      ],
+      "expectations": [
+        "Os outputs contêm os prompts para o Nano Banana 2 conforme definidos na skill",
+        "Os outputs contêm o script JSON para o Veo3.1 com o '[PRODUTO]' substituído por 'Perfume de Feromônios Atraente'",
+        "Há copys geradas para o Vídeo 2 e Vídeo 3 com menos de 180 caracteres cada"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Quero um vídeo fábrica para o meu produto 'Fone de Ouvido Bluetooth Sem Fio'. Crie os scripts e o passo a passo com as falas e os 3 clipes do vídeo.",
+      "expected_output": "O script JSON contendo a estrutura com a substituição do produto e copys apropriadas para o fone de ouvido.",
+      "files": [
+        "evals/files/img_referencia_fabrica.jpeg",
+        "evals/files/img_referencia_ugc.jpeg"
+      ],
+      "expectations": [
+        "Os outputs contêm os prompts para o Nano Banana 2 conforme definidos na skill",
+        "Os outputs contêm o script JSON para o Veo3.1 com o '[PRODUTO]' substituído por 'Fone de Ouvido Bluetooth Sem Fio'",
+        "Há copys geradas para o Vídeo 2 e Vídeo 3 com menos de 180 caracteres cada"
+      ]
+    }
+  ]
+}

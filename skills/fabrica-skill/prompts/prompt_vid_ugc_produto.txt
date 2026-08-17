@@ -1,0 +1,38 @@
+Create a highly realistic 9:16 vertical video using the provided frame as the visual reference.
+Preserve the identity, product, environment, lighting direction, and overall composition shown in the image, while allowing natural motion and continuity to bring the scene to life.
+VISUAL REALISM:
+- Photorealistic skin with subtle texture, natural pores, soft highlights, and realistic shadows.
+- Natural hair movement with fine strand detail and believable physics.
+- Accurate fabric behavior and product materials with correct reflections and weight.
+- Clean, sharp image with natural color, balanced contrast, and realistic depth of field.
+- No over-processing, no artificial cinematic effects.
+CAMERA & MOTION:
+- Apply gentle, human-like camera movement (slow push-in, slight parallax, or soft handheld stabilization).
+- Movement should feel intentional and calm, never random or aggressive.
+- Framing may subtly evolve to increase intimacy or focus, guided by the scene and the product.
+- Avoid static shots, but keep everything smooth and coherent.
+INFLUENCER BEHAVIOR:
+- The influencer behaves naturally, as if recording a real casual video.
+- Relaxed posture, soft gestures, small head movements, natural blinking, and micro-expressions.
+- No exaggerated acting or sales performance.
+- Interaction style adapts automatically to the product type (demonstrative for functional items, expressive for lifestyle or beauty, subtle for everyday products).
+INFLUENCER SPEECH (example — Portuguese only):
+
+“Gente… sério, olha isso. Eu não tava esperando por isso não. Depois eu te conto melhor, mas já adianto que vale muito a pena.”
+
+- Speech must sound spontaneous, with light pauses, natural rhythm, and a soft São Paulo ‘blogueirinha’ accent.
+- Tone is friendly, curious, and confident — never scripted or forced.
+PRODUCT INTERACTION:
+- The product remains visually accurate at all times.
+- If touched or held, hand pressure, grip, and movement must be realistic and proportional.
+- No distortion, no scale changes, no visual artifacts.
+GENERAL GUIDELINES:
+- Let realism guide every decision.
+- Let the product and influencer naturally define pacing, movement, and focus.
+- Keep the video clean, modern, human, and believable.
+- The result should feel like a real person recording a real moment — not an ad.
+
+
+ 
+
+
