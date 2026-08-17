@@ -95,7 +95,8 @@ ffmpeg -f concat -safe 0 -i list.txt -c copy video_final_fabrica.mp4
 ```
 
 ## Passo a passo de Execução:
-1. **Entrevista/Confirmação:** Peça ao usuário qual é o Produto e se as imagens base já estão no diretório de trabalho.
+1. **Entrevista/Confirmação:** Peça ao usuário qual é o Produto e se as imagens base já estão no diretório de trabalho. Sugira criar uma pasta isolada para os arquivos deste projeto (ex: `tiktok-[nome-produto]`).
 2. **Copywriting:** Gere e mostre ao usuário as copys para o Vídeo 2 e Vídeo 3 (máximo 180 caracteres cada).
-3. **Orquestração:** (Se você tiver as ferramentas) Chame o gerador de imagens e de vídeos. 
-4. **Finalização:** Junte os vídeos e entregue o resultado final.
+3. **Escrita dos Prompts:** Escreva o texto de prompt alterado em arquivos separados (`prompt_vid2.txt` e `prompt_vid3.txt`) dentro da pasta isolada ao invés de enviar textos gigantes diretamente por linha de comando.
+4. **Orquestração:** Chame a CLI passando os argumentos e arquivos adequados. Sugira sempre utilizar `-n 2` ou `-n 3` na geração das imagens iniciais para que o usuário possa escolher o melhor antes de avançar para a geração em vídeo.
+5. **Finalização:** Concatene os vídeos finais e entregue o resultado final.
