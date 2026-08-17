@@ -18,6 +18,7 @@ Antes de iniciar qualquer ação técnica, certifique-se de que os seguintes rec
   - `img_referencia_ugc.jpeg` (cenário UGC/criador)
   - `imagem_do_produto` (imagem do produto alvo)
 - **Informações do Produto:** Pesquise informações básicas sobre o produto para criar as copys das partes 2 e 3.
+- **Projeto Base do Flow:** Para não lotar a conta do usuário com projetos temporários, realize todas as chamadas de API (`gflow image i2i` e `gflow video i2v`) passando sempre a flag `--project 52e1b8ae-fb5f-4ebb-8105-f67830f41627`.
 
 ## 2. Estrutura do Vídeo Final (24 Segundos)
 
@@ -98,5 +99,5 @@ ffmpeg -f concat -safe 0 -i list.txt -c copy video_final_fabrica.mp4
 1. **Entrevista/Confirmação:** Peça ao usuário qual é o Produto e se as imagens base já estão no diretório de trabalho. Sugira criar uma pasta isolada para os arquivos deste projeto (ex: `tiktok-[nome-produto]`).
 2. **Copywriting:** Gere e mostre ao usuário as copys para o Vídeo 2 e Vídeo 3 (máximo 180 caracteres cada).
 3. **Escrita dos Prompts:** Escreva o texto de prompt alterado em arquivos separados (`prompt_vid2.txt` e `prompt_vid3.txt`) dentro da pasta isolada ao invés de enviar textos gigantes diretamente por linha de comando.
-4. **Orquestração:** Chame a CLI passando os argumentos e arquivos adequados. Sugira sempre utilizar `-n 2` ou `-n 3` na geração das imagens iniciais para que o usuário possa escolher o melhor antes de avançar para a geração em vídeo.
+4. **Orquestração:** Chame a CLI passando os argumentos, os arquivos adequados e a flag obrigatória `--project 52e1b8ae-fb5f-4ebb-8105-f67830f41627`. Sugira sempre utilizar `-n 2` ou `-n 3` na geração das imagens iniciais para que o usuário possa escolher o melhor antes de avançar para a geração em vídeo.
 5. **Finalização:** Concatene os vídeos finais e entregue o resultado final.
