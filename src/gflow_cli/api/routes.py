@@ -155,3 +155,12 @@ def project_editor_url(locale: str, project_id: str) -> str:
     """
     segment = locale.strip().split("-", 1)[0].lower() or "en"
     return f"{LABS_FX_BASE}/{segment}/tools/flow/project/{project_id}"
+
+
+def collection_editor_url(locale: str, project_id: str, collection_id: str) -> str:
+    """Build the user-facing Flow editor URL for a collection within a project.
+
+    Pattern: ``https://labs.google/fx/{seg}/tools/flow/project/{project_id}/collection/{collection_id}``
+    """
+    segment = locale.strip().split("-", 1)[0].lower() or "en"
+    return f"{LABS_FX_BASE}/{segment}/tools/flow/project/{project_id}/collection/{collection_id}"

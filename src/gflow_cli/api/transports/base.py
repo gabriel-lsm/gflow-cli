@@ -52,6 +52,7 @@ class FlowTransportStrategy(Protocol):
         *,
         project_id: str | None,
         request: GenerateImageRequest,
+        collection_id: str | None = None,
     ) -> list[GeneratedImage]:
         """Send batchGenerateImages. recaptcha_token lives on `request` —
         keeping the Protocol media-agnostic across image and video generation."""
@@ -77,6 +78,7 @@ class VideoCapableTransport(Protocol):
         *,
         request: GenerateVideoRequest,
         project_id: str | None = None,
+        collection_id: str | None = None,
         out_dir: Path | None,
         poll_timeout_s: float,
         download: bool,

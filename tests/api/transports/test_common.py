@@ -220,3 +220,18 @@ def test_extract_project_id_from_flow_url() -> None:
 
 def test_extract_project_id_returns_none_for_gallery_url() -> None:
     assert extract_project_id("https://labs.google/fx/tools/flow") is None
+
+
+def test_extract_project_id_from_collection_url() -> None:
+    """Regression: /collection/<cid> suffix must not leak into the project_id."""
+    url = (
+        "https://labs.google/fx/en/tools/flow/project/"
+        "701c2c59-b455-4160-afc5-73bac3764cb1/collection/"
+        "ce9a1011-a591-46a8-8656-cfcf27a5c476"
+    )
+    assert extract_project_id(url) == "701c2c59-b455-4160-afc5-73bac3764cb1"
+
+
+def test_extract_project_id_from_project_url_no_query() -> None:
+    url = "https://labs.google/fx/tools/flow/project/abc-123"
+    assert extract_project_id(url) == "abc-123"

@@ -49,14 +49,19 @@ PROJECT_URL_FRAGMENT = "/project/"
 
 
 def extract_project_id(url: str) -> str | None:
-    """Pull the project UUID out of a Flow editor URL, or None if absent.
+    """Pull the project UUID out of a Flow editor URL, or ``None`` if absent.
 
-    Handles both ``/project/<uuid>`` and ``/project/<uuid>?query`` forms.
+    Handles ``/project/<uuid>``, ``/project/<uuid>?query``, and
+    ``/project/<uuid>/collection/<cid>`` forms — the ``/collection/…`` suffix
+    (and any query string) is stripped so only the bare project UUID is returned.
     """
     if PROJECT_URL_FRAGMENT not in url:
         return None
     try:
-        return url.split(PROJECT_URL_FRAGMENT)[1].split("?", maxsplit=1)[0]
+        tail = url.split(PROJECT_URL_FRAGMENT)[1]
+        # Strip query string, then take only the first path segment (the UUID).
+        # This prevents /collection/<cid> from leaking into the project_id.
+        return tail.split("?", maxsplit=1)[0].split("/", maxsplit=1)[0]
     except (IndexError, ValueError):
         return None
 

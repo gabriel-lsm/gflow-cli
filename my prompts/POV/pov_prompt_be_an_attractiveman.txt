@@ -1,0 +1,71 @@
+Create a 9:16 ultra-realistic POV video using the reference frame as the visual source for the product.
+
+Preserve 100% of the original product design, text, lighting style, and proportions.
+
+Never add, remove, duplicate, redesign, or alter the core product. Only the solid red rectangular prop may appear.
+
+Strict first-person POV. The camera is the viewer's eyes.
+
+Never show any person, face, head, hair, body, arms, reflection, shadow, or clothing.
+
+The only human elements allowed are a pair of realistic feminine hands entering naturally from the bottom or sides of the frame to hold, rotate, lift, and present the solid red prop. The hands must have natural skin texture.
+
+Keep the hands visible only when interacting with the object. No other body parts may appear at any time.
+
+Use subtle handheld smartphone movement, micro-shakes, breathing motion, natural close-ups, and brief autofocus shifts.
+
+Dialogue must be spoken only in Brazilian Portuguese and match exactly:
+
+(Optional)[Portuguese speech]
+
+Do not change, improvise, shorten, expand, paraphrase, or add words. No subtitles. No text overlaid. No music. No cinematic effects.
+
+Product description: A completely solid, heavy rectangular block made of dense, high-gloss lacquered resin (not glass, completely solid interior) with softly rounded edges and a minimalist premium design.
+
+PRODUCT MATERIAL:
+- Solid painted resin or polished ceramic. NOT hollow. No liquid inside.
+- The object has a smooth satin finish that diffuses reflections naturally.
+- Vibrant, solid red exterior.
+- Large cylindrical matte black cap with a glossy black collar underneath.
+- Strong realistic surface reflections.
+- Completely opaque, solid body.
+- Printed text remains perfectly sharp and readable.
+- No fading, zero transparency.
+
+The front label is printed directly on the material in crisp black uppercase letters with the exact layout:
+
+"BE AN ATTRACTIVE"
+"MEN"
+"ARA2725"
+"PERFUME DE FEROMONIOS"
+"50ML"
+
+NEGATIVE PROMPT:
+- Perfume bottle, liquid, water, sloshing, splashing.
+- Visible liquid inside the product.
+- Transparent or translucent materials.
+- See-through effects.
+- Glass refractions.
+- Hollow objects.
+- Opening the product.
+- Removing caps, lids, seals, wrappers, or covers.
+- Dispensing, spraying, pouring, pumping, squeezing out, or activating the product.
+- Demonstrating product functionality.
+- Showing the inside of the product.
+- Product transformation.
+- Product disassembly.
+- Exploded views.
+- Broken or detached parts.
+- Repetitive motions.
+- Fast movements.
+- Abrupt camera motion.
+- Cinematic transitions.
+- Unrealistic hand movements.
+- Deformed fingers.
+- Product deformation.
+- Text distortion.
+- Label changes.
+- Floating objects.
+- Extra hands or fingers.
+- Product switching.
+- Product duplication.

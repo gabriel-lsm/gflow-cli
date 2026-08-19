@@ -497,6 +497,7 @@ class VideoGenerationMixin:
             out_dir: Path | None = None,
             *,
             project_id: str | None = None,
+            collection_id: str | None = None,
             locale: str = "en-US",
         ) -> None: ...
         async def _send_prompt(
@@ -1743,6 +1744,7 @@ class VideoGenerationMixin:
         *,
         request: GenerateVideoRequest,
         project_id: str | None = None,
+        collection_id: str | None = None,
         out_dir: Path | None = None,
         poll_timeout_s: float = 600.0,
         download: bool = True,
@@ -1750,8 +1752,9 @@ class VideoGenerationMixin:
     ) -> VideoResult:
         """Generate ONE video by driving the Flow editor UI (T2V / I2V / R2V).
 
-        If ``project_id`` is provided, navigates to that project. Otherwise
-        creates a new one.
+        If ``project_id`` is provided, navigates to that project. If
+        ``collection_id`` is also provided, navigates to the collection within
+        that project. Otherwise creates a new one.
 
         Returns a `VideoResult` carrying both the terminal `VideoStatus` and the
         on-disk `local_path` (``None`` when ``download=False`` or the generation
@@ -1782,6 +1785,7 @@ class VideoGenerationMixin:
             return await self._generate_video_locked(
                 request,
                 project_id=project_id,
+                collection_id=collection_id,
                 out_dir=out_dir,
                 poll_timeout_s=poll_timeout_s,
                 download=download,
@@ -2041,6 +2045,7 @@ class VideoGenerationMixin:
         request: GenerateVideoRequest,
         *,
         project_id: str | None = None,
+        collection_id: str | None = None,
         out_dir: Path | None,
         poll_timeout_s: float,
         download: bool,
@@ -2067,7 +2072,7 @@ class VideoGenerationMixin:
 
         page: Page = self._page  # type: ignore[assignment]  # guarded in generate_video
 
-        await self._enter_editor(page, out_dir, project_id=project_id)
+        await self._enter_editor(page, out_dir, project_id=project_id, collection_id=collection_id)
         await VideoGenerationMixin._wait_video_editor_ready(page)
         # Dismiss any Flow changelog / "What's new" overlay that may be on top
         # of the editor before we click into mode-switch / settings / submit (#26).

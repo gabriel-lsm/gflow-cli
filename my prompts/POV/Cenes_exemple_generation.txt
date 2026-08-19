@@ -1,0 +1,25 @@
+Sempre que for gerar uma copy grande diferente pra cada vídeo, você deve seguir essa lógica de falas, sempre quebrando em uma média de 120 caracteres.
+
+[
+  {
+    "vídeo1": [
+      "Se pagou caro nesse hidratante antes, não veja! A loção Beiermei entrou em promoção relâmpago no TikTok Shop.",
+      "Ela tem glicerina para reter a hidratação, niacinamida para clarear manchinhas e 1% de ureia na fórmula.",
+      "São 350g de puro cuidado para o corpo todo. Clica no carrinho laranja aqui embaixo antes que acabe tudo!"
+    ]
+  },
+  {
+    "vídeo2": [
+      "Gente, para tudo! Sabe aquele hidratante roxinho da Beiermei que todo mundo ama? Tá com um preço bizarro de barato.",
+      "Ele tem uma fórmula perfeita com glicerina, niacinamida e ureia para deixar a pele um veludo e sem manchas.",
+      "Corre agora mesmo no carrinho laranja aqui do vídeo porque esse estoque vai esgotar muito rápido!"
+    ]
+  },
+  {
+    "vídeo3": [
+      "Alerta de promoção! A loção High Moisturizing da Beiermei está saindo praticamente de graça aqui no TikTok Shop.",
+      "Ela junta o poder da glicerina, o efeito uniformizador da niacinamida e a hidratação profunda da ureia.",
+      "O pote de 350g rende demais. Se o carrinho laranja estiver aparecendo aí na sua tela, aproveita agora!"
+    ]
+  }
+]

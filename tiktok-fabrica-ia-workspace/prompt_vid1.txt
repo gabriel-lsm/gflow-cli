@@ -1,0 +1,59 @@
+{
+  "generation_model": "VEO 3.1",
+  "task": "Image-to-Video (I2V)",
+  "aspect_ratio": "9:16",
+  "resolution": "4K UHD",
+  "frame_rate": 30,
+  "scene_description": {
+    "setting": {
+      "location": "Galpão industrial / centro de distribuição",
+      "background_elements": [
+        "Esteira rolante transportando várias unidades do produto pra baixo mostrado na imagem de referência",
+        "Esteira vai derrumando alguns produtos dentro da sacola"
+        "Prateleiras industriais com caixas",
+        "Área de embalagem e expedição",
+        "Ambiente de fábrica movimentado e realista",
+        "Iluminação industrial clara e natural"
+      ]
+    },
+    "characters": {
+      "main_characters_foreground": {
+        "description": "EXATAMENTE as mesmas pessoas visíveis na imagem de referência. Preserve exatamente a quantidade de pessoas, suas posições relativas, composição e enquadramento da imagem original. NÃO adicionar novos personagens.",
+        "initial_action": "Os trabalhadores permanecem exatamente nas posições em que aparecem na imagem de referência, próximos à esteira, olhando e interagindo naturalmente com o produto.",
+        "dialogue_action": "Todos os trabalhadores visíveis na imagem de referência olham diretamente para a câmera e falam juntos, simultaneamente, com muita empolgação e energia. Eles permanecem em seus respectivos lugares enquanto falam, usando apenas gestos naturais com as mãos, braços e expressões faciais.",
+        "after_dialogue_action": "Somente depois que toda a fala terminar, os mesmos trabalhadores comemoram alegremente sem mudar de posição. Eles sorriem, fazem pequenos gestos de comemoração com as mãos e braços e demonstram entusiasmo, mas permanecem exatamente onde estavam.",
+        "movement_constraint": "Os trabalhadores devem permanecer praticamente estacionários durante todo o vídeo. NÃO caminhar, NÃO correr, NÃO avançar em direção à câmera, NÃO se aproximar da câmera, NÃO trocar de posição e NÃO sair de seus lugares.",
+        "lip_sync": "Lip-sync preciso e natural em português brasileiro para todos os personagens que estão falando."
+      },
+      "background_characters": {
+        "description": "Preserve somente os personagens que já existem na imagem de referência.",
+        "action": "Nenhum novo personagem deve aparecer. Qualquer pessoa que já esteja ao fundo permanece em sua posição original e continua realizando movimentos discretos e naturais."
+      }
+    },
+    "dialogue_and_audio": {
+      "spoken_dialogue": {
+        "speaker": "Todos os trabalhadores visíveis na imagem de referência",
+        "language": "pt-BR",
+        "text": "Quem comprou esse Protetor Solar Beiermei ontem tá chorando! O TikTok surtou e o estoque tá sumindooooo!",
+        "delivery_instruction": "TODOS os trabalhadores visíveis na imagem de referência devem falar EXATAMENTE esse texto, simultaneamente e em conjunto, palavra por palavra. Não improvisar, não parafrasear, não resumir, não substituir palavras, não adicionar palavras e não criar falas diferentes para personagens diferentes.",
+        "tone": "Extremamente empolgado, energético, espontâneo e convincente."
+      },
+      "celebration_audio": {
+        "timing": "A comemoração começa somente depois que a fala completa terminar.",
+        "description": "Depois da fala, os mesmos trabalhadores comemoram alegremente permanecendo em seus lugares, com expressões animadas, pequenos gestos com as mãos e braços e sons espontâneos de entusiasmo.",
+        "ambient_sound": "Som realista e discreto de esteira, caixas e movimentação de fábrica durante a fala. Após a fala terminar, os sons de comemoração ficam mais evidentes."
+      }
+    },
+    "timeline": {
+      "0-6_seconds": "Os mesmos trabalhadores presentes na imagem de referência permanecem em suas posições originais, olhando diretamente para a câmera e falando juntos e simultaneamente a fala exata. Eles fazem apenas gestos naturais com as mãos e expressões faciais, sem caminhar ou mudar de posição.",
+      "6-8_seconds": "Assim que terminam a última palavra, os mesmos trabalhadores comemoram juntos com entusiasmo, mas permanecem exatamente nos mesmos lugares. A comemoração consiste apenas em expressões faciais alegres e pequenos gestos de braços e mãos. Nenhum trabalhador se aproxima da câmera."
+    },
+    "camera_and_motion": {
+      "camera_angle": "Vertical 9:16, mantendo a composição e o enquadramento geral da imagem de referência.",
+      "camera_movement": "Handheld muito leve e natural, sem avanço significativo em direção aos personagens.",
+      "lighting": "Iluminação industrial difusa, clara e realista.",
+      "motion_quality": "Movimentos humanos naturais e sutis, preservando a composição original da imagem."
+    }
+  },
+  "prompt_text": "Create a realistic vertical 9:16 image-to-video animation based strictly on the reference image. The reference image is the authoritative source for the number of people, their identities, positions, composition and spatial arrangement. PRESERVE EXACTLY THE SAME PEOPLE SHOWN IN THE REFERENCE IMAGE. DO NOT ADD, REMOVE OR INVENT ANY CHARACTERS. ALL PEOPLE VISIBLE IN THE REFERENCE IMAGE must speak TOGETHER and SIMULTANEOUSLY in Brazilian Portuguese. They must say this EXACT dialogue VERBATIM: \"Quem comprou esse perfume de feromônios ontem tá chorando! O TikTok surtou e o estoque tá sumindooooo!\". Do not improvise, paraphrase, shorten, replace, omit or add any words. The people must remain in their original positions throughout the entire video. They must NOT walk, run, approach the camera, move toward the foreground, change places or leave their positions. Their movement is limited to natural facial expressions, head movement and small hand and arm gestures. ONLY AFTER the complete dialogue has finished, the same people celebrate enthusiastically while remaining in their original positions. Do not introduce new people. Prioritize exact dialogue, lip-sync, character consistency and reference-image composition over complex movement."
+} 

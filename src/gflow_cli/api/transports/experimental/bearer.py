@@ -269,6 +269,7 @@ class BearerTransport:
         *,
         project_id: str | None,
         request: GenerateImageRequest,
+        collection_id: str | None = None,  # noqa: ARG002  # unused by this HTTP transport
     ) -> list[GeneratedImage]:
         """Generate images via pure httpx, replaying the captured fingerprint.
 

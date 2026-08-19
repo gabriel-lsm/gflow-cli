@@ -130,7 +130,7 @@ def _validate_entity_ids(
 
 
 def _project_and_entity_options(*, single_prompt: bool) -> Callable[[_CmdFn], _CmdFn]:
-    """Shared `--project` / `--reference-entity` / `--reference-entity-name` options.
+    """Shared `--project` / `--collection` / `--reference-entity` / `--reference-entity-name` options.
 
     Applied to both `t2i` and `i2i` so the (identical) option definitions live in one
     place. ``single_prompt`` appends the single-prompt-only note to t2i's help.
@@ -152,6 +152,17 @@ def _project_and_entity_options(*, single_prompt: bool) -> Callable[[_CmdFn], _C
             help=(
                 "Flow CHARACTER entity id to reference for consistency (repeatable). "
                 "The entity must live in the --project you target." + note
+            ),
+        )(func)
+        func = click.option(
+            "--collection",
+            "collection_id",
+            default=None,
+            callback=_validate_project_id,
+            help=(
+                "Generate inside this specific collection within the target --project. "
+                "Requires --project. Find the id in the Flow collection URL "
+                "(…/project/<pid>/collection/<cid>)." + note
             ),
         )(func)
         return click.option(
@@ -658,11 +669,16 @@ def t2i(  # NOSONAR
     tool_specs: tuple[str, ...],
     transport: str | None,
     project_id: str | None,
+    collection_id: str | None,
     reference_entities: tuple[str, ...],
     reference_entity_names: tuple[str, ...],
     as_json: bool,
 ) -> None:
     """Generate image(s) from one or more text prompts."""
+    if collection_id is not None and project_id is None:
+        msg = "--collection requires --project (a collection lives inside a project)."
+        raise click.UsageError(msg)
+
     is_multi_prompt = len(prompts) > 1 or prompts_file is not None or read_stdin
     _validate_t2i_input(prompts, prompts_file, read_stdin)
 
@@ -712,6 +728,7 @@ def t2i(  # NOSONAR
                 output_root=settings.output_dir,
                 transport=transport,
                 project_id=project_id,
+                collection_id=collection_id,
                 as_json=as_json,
             ),
             cli_command="image t2i",
@@ -950,6 +967,7 @@ async def _run_t2i(
     output_root: Path,
     transport: str | None = None,
     project_id: str | None = None,
+    collection_id: str | None = None,
     as_json: bool = False,
 ) -> None:
     settings = get_settings()
@@ -971,13 +989,16 @@ async def _run_t2i(
                     f"  Generating {count} image(s) ({req.model.value}, {req.aspect.value})...",
                 )
             if count == 1:
-                img = await client.generate_image(project_id=project.project_id, req=req)
+                img = await client.generate_image(
+                    project_id=project.project_id, req=req, collection_id=collection_id
+                )
                 images: list[GeneratedImage] = [img]
             else:
                 images = await client.generate_images_batch(
                     project_id=project.project_id,
                     req=req,
                     count=count,
+                    collection_id=collection_id,
                 )
 
             saved_paths = await _download_images(client, images, out, output_root)
@@ -1289,11 +1310,16 @@ def i2i(
     tool_specs: tuple[str, ...],
     transport: str | None,
     project_id: str | None,
+    collection_id: str | None,
     reference_entities: tuple[str, ...],
     reference_entity_names: tuple[str, ...],
     as_json: bool,
 ) -> None:
     """Generate image(s) from PROMPT + reference image(s) (image-to-image)."""
+    if collection_id is not None and project_id is None:
+        msg = "--collection requires --project (a collection lives inside a project)."
+        raise click.UsageError(msg)
+
     # Classify each --ref upfront: UUIDs become ImageRef, path-likes become
     # canonical Paths (with symlinks resolved). _classify_ref raises
     # click.UsageError on missing/broken paths, which Click maps to exit 2.
@@ -1341,6 +1367,7 @@ def i2i(
             output_root=settings.output_dir,
             transport=transport,
             project_id=project_id,
+            collection_id=collection_id,
             as_json=as_json,
         ),
         cli_command="image i2i",
@@ -1359,6 +1386,7 @@ async def _run_i2i(
     output_root: Path,
     transport: str | None = None,
     project_id: str | None = None,
+    collection_id: str | None = None,
     as_json: bool = False,
 ) -> None:
     settings = get_settings()
@@ -1401,13 +1429,16 @@ async def _run_i2i(
                     f"({req.model.value}, {req.aspect.value})...",
                 )
             if count == 1:
-                img = await client.generate_image(project_id=project.project_id, req=req)
+                img = await client.generate_image(
+                    project_id=project.project_id, req=req, collection_id=collection_id
+                )
                 images: list[GeneratedImage] = [img]
             else:
                 images = await client.generate_images_batch(
                     project_id=project.project_id,
                     req=req,
                     count=count,
+                    collection_id=collection_id,
                 )
 
             saved_paths = await _download_images(client, images, out, output_root)

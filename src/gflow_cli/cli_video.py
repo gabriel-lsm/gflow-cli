@@ -46,6 +46,18 @@ _project_option = click.option(
     help=("Generate in this existing Flow project id instead of creating a scratch project."),
 )
 
+_collection_option = click.option(
+    "--collection",
+    "collection_id",
+    default=None,
+    callback=_validate_project_id,
+    help=(
+        "Generate inside this specific collection within the target --project. "
+        "Requires --project. Find the id in the Flow collection URL "
+        "(…/project/<pid>/collection/<cid>)."
+    ),
+)
+
 
 def _warn_persistence_failed_after_success(
     *,
@@ -76,6 +88,7 @@ async def _generate_and_report(
     command: str = "video",
     as_json: bool = False,
     project_id: str | None = None,
+    collection_id: str | None = None,
 ) -> None:
     """Drive FlowApiClient for a single GenerateVideoRequest and print the
     result (or fail with a non-zero exit). Shared by t2v, i2v, and r2v.
@@ -114,6 +127,7 @@ async def _generate_and_report(
             result = await client.generate_video(
                 req=request,
                 project_id=project_id,
+                collection_id=collection_id,
                 out_dir=out_dir,
                 download=True,
                 on_started=on_started,
@@ -172,6 +186,7 @@ async def _run_t2v(
     original_prompt: str | None = None,
     tool: AppliedTool | None = None,
     project_id: str | None = None,
+    collection_id: str | None = None,
 ) -> None:
     from gflow_cli.api.video import Aspect, GenerateVideoRequest, Mode, VideoModel
 
@@ -193,6 +208,7 @@ async def _run_t2v(
         command="video t2v",
         as_json=as_json,
         project_id=project_id,
+        collection_id=collection_id,
     )
 
 
@@ -224,6 +240,7 @@ async def _run_i2v(
     count: int = 1,
     as_json: bool = False,
     project_id: str | None = None,
+    collection_id: str | None = None,
 ) -> None:
     from gflow_cli.api.video import (
         I2V_DEFAULT_MODEL,
@@ -270,6 +287,7 @@ async def _run_i2v(
         command="video i2v",
         as_json=as_json,
         project_id=project_id,
+        collection_id=collection_id,
     )
 
 
@@ -963,6 +981,7 @@ def _resolve_i2v_args(
 @click.option("--profile", default=None, help="Profile name (overrides default).")
 @tool_option
 @_project_option
+@_collection_option
 @click.option(
     "--out-dir",
     "out_dir",
@@ -989,6 +1008,7 @@ def i2v(  # NOSONAR
     profile: str | None,
     tool_specs: tuple[str, ...],
     project_id: str | None,
+    collection_id: str | None,
     out_dir: Path | None,
     as_json: bool,
 ) -> None:
@@ -1029,6 +1049,7 @@ def i2v(  # NOSONAR
             out_dir=out_dir,
             as_json=as_json,
             project_id=project_id,
+            collection_id=collection_id,
         ),
         cli_command="video i2v",
         as_json=as_json,

@@ -1,0 +1,124 @@
+Create a 9:16 ultra-realistic POV smartphone video using the reference image as the exact visual source for the product.
+
+The video should feel like a real woman casually recording a TikTok with her phone, naturally presenting the product to the camera.
+
+PRODUCT FIDELITY IS CRITICAL.
+
+Preserve the product exactly as shown in the reference:
+
+exact design
+exact shape and proportions
+exact colors
+exact bottle
+exact cap
+exact label
+exact logo
+exact visible text
+exact materials and details
+
+Never redesign, distort, duplicate, remove or invent any part of the product.
+
+Only the referenced product may appear.
+
+CAMERA & POV:
+
+Strict first-person POV.
+
+The camera represents the viewer's eyes and is held like a real smartphone.
+
+Use a natural handheld smartphone perspective with subtle human movement, small micro-shakes, slight breathing movement and realistic autofocus behavior.
+
+Avoid cinematic camera movements or polished commercial photography.
+
+HUMAN PRESENCE:
+
+The scene should feel like it is being filmed by a feminine person with a beautiful, natural and well-groomed appearance, without making her appearance the focus of the video.
+
+Keep the identity and appearance intentionally generic and natural.
+
+Do not show the face or clearly identifiable person.
+
+Natural feminine hands may enter the frame to interact with the product.
+
+The hands should look realistic, elegant and naturally groomed, with realistic skin texture and natural finger movement.
+
+PRODUCT INTERACTION:
+
+The hands must interact naturally and confidently with the product.
+
+The product should remain very close to the camera and clearly visible throughout the main interaction.
+
+The woman naturally:
+
+reaches for the product
+picks it up
+brings it closer to the camera
+holds it directly in front of the lens
+gently moves it from side to side
+slightly rotates it to reveal the bottle and label
+adjusts its position naturally so the product remains clearly visible
+briefly moves it slightly away and brings it close again
+
+The movement should feel spontaneous and human, as if someone is naturally showing a product to a friend through their phone.
+
+Keep the product large in the frame and visually dominant.
+
+Avoid fast or exaggerated movements.
+
+Avoid robotic hand movements.
+
+Avoid unnatural finger positions.
+
+Avoid sudden changes in product size or position.
+
+REALISM:
+
+The entire video must look like authentic smartphone footage captured by a real person.
+
+Use realistic:
+
+hand motion
+object physics
+reflections
+shadows
+focus
+exposure
+depth of field
+motion blur
+skin texture
+camera movement
+
+Do not make it look like CGI, 3D animation, a commercial, a studio product shoot or an AI-generated advertisement.
+
+The imperfections of a real smartphone recording are desirable.
+
+AUDIO:
+
+If dialogue is provided, speak ONLY in Brazilian Portuguese and reproduce the provided dialogue exactly.
+
+Do not improvise, paraphrase, shorten, expand or add words.
+
+Dialogue:
+(Optional)[Portuguese speech]
+
+No subtitles.
+No captions.
+No text overlays.
+No music.
+No sound effects.
+No cinematic effects.
+
+FINAL PRIORITY:
+
+REALISM > CINEMATIC QUALITY.
+
+The viewer should feel that a real woman is casually holding the exact product in front of her smartphone camera and naturally showing it up close.
+Product Info:
+
+* Brand: BEIERMEI
+* Product Name: High Moisturizing Nourishing Body Lotion
+* Model/Code: BE-M0002
+* Key Ingredients: 12% Glycerin, 1.2% Niacinamide, 1% Urea
+* Claims: Deeply penetrates and intensely moisturizes, nourishing and whitening, anti-inflammatory and soothing
+* Volume/Weight: 350g / 11.8FL.OZ
+* Packaging Type: Light blue plastic bottle with a white pump dispenser

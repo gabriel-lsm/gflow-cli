@@ -969,13 +969,15 @@ class UiAutomationTransport(VideoGenerationMixin):
         out_dir: Path | None = None,
         *,
         project_id: str | None = None,
+        collection_id: str | None = None,
         locale: str = "en-US",
     ) -> None:
-        """Create a fresh project OR navigate to an existing one.
+        """Create a fresh project OR navigate to an existing one (or collection).
 
         If ``project_id`` is provided, navigates directly to that project's
-        editor URL. Otherwise clicks "+ New project" on the gallery and
-        waits for ``/project/`` navigation.
+        editor URL. If ``collection_id`` is also provided, navigates to the
+        collection within that project instead. Otherwise clicks "+ New project"
+        on the gallery and waits for ``/project/`` navigation.
 
         When creating a new project and the URL already contains
         ``/project/`` (Flow's PWA restored the previous project on browser
@@ -987,8 +989,17 @@ class UiAutomationTransport(VideoGenerationMixin):
         from gflow_cli.api import routes
 
         if project_id:
-            url = routes.project_editor_url(locale, project_id)
-            log.info("ui_automation.entering_existing_project", project_id=project_id, url=url)
+            if collection_id:
+                url = routes.collection_editor_url(locale, project_id, collection_id)
+                log.info(
+                    "ui_automation.entering_collection",
+                    project_id=project_id,
+                    collection_id=collection_id,
+                    url=url,
+                )
+            else:
+                url = routes.project_editor_url(locale, project_id)
+                log.info("ui_automation.entering_existing_project", project_id=project_id, url=url)
             await page.goto(url, wait_until="domcontentloaded", timeout=45_000)
             await self._dismiss_blocking_overlays(page, out_dir)
             return
@@ -2033,12 +2044,14 @@ class UiAutomationTransport(VideoGenerationMixin):
         *,
         project_id: str | None,
         request: GenerateImageRequest,
+        collection_id: str | None = None,
     ) -> list[GeneratedImage]:
         """Submit ``request.prompt`` through Flow's editor and return the
         generated images as DTOs.
 
-        If ``project_id`` is provided, navigates to that project. Otherwise
-        creates a new one.
+        If ``project_id`` is provided, navigates to that project. If
+        ``collection_id`` is also provided, navigates to the collection within
+        that project. Otherwise creates a new one.
 
         Raises ``RuntimeError`` if setup() has not been called, the
         ``batchGenerateImages`` response is non-200, or the response is
@@ -2050,13 +2063,16 @@ class UiAutomationTransport(VideoGenerationMixin):
                 msg,
             )
         async with self._generate_lock:
-            return await self._generate_images_locked(request, project_id=project_id)
+            return await self._generate_images_locked(
+                request, project_id=project_id, collection_id=collection_id
+            )
 
     async def _generate_images_locked(
         self,
         request: GenerateImageRequest,
         *,
         project_id: str | None = None,
+        collection_id: str | None = None,
     ) -> list[GeneratedImage]:
         """Serialized body of generate_images — called under self._generate_lock."""
         from gflow_cli.api.transports.drivers.factory import (  # noqa: PLC0415
@@ -2066,7 +2082,7 @@ class UiAutomationTransport(VideoGenerationMixin):
         page: Page = self._page  # type: ignore[assignment]  # guard in caller
         out_dir = self._out_dir
 
-        await self._enter_editor(page, out_dir, project_id=project_id)
+        await self._enter_editor(page, out_dir, project_id=project_id, collection_id=collection_id)
         # Dismiss any Flow changelog / "What's new" overlay that may be on top
         # of the editor before we click into settings / submit (#26).
         await self._dismiss_blocking_overlays(page, out_dir)

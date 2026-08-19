@@ -1470,6 +1470,7 @@ class FlowApiClient:
         project_id: str,
         req: GenerateImageRequest,
         recaptcha_action: str,
+        collection_id: str | None = None,
     ) -> list[GeneratedImage]:
         """Mint a token, call the transport once, and return all images.
 
@@ -1488,6 +1489,7 @@ class FlowApiClient:
         images = await self.transport.generate_images(
             project_id=project_id,
             request=req_with_token,
+            collection_id=collection_id,
         )
         if not images:
             raise ContentPolicyError(
@@ -1503,6 +1505,7 @@ class FlowApiClient:
         project_id: str,
         req: GenerateImageRequest,
         recaptcha_action: str,
+        collection_id: str | None = None,
     ) -> GeneratedImage:
         """Single-image shortcut — delegates to ``_drive_images_generation`` with count=1.
 
@@ -1522,6 +1525,7 @@ class FlowApiClient:
             project_id=project_id,
             req=req_one,
             recaptcha_action=recaptcha_action,
+            collection_id=collection_id,
         )
         if len(images) > 1:
             logger.warning(
@@ -1545,6 +1549,7 @@ class FlowApiClient:
         project_id: str | None = None,
         req: GenerateImageRequest,
         recaptcha_action: str = "imageGeneration",
+        collection_id: str | None = None,
     ) -> GeneratedImage:
         """Single-shot Imagen/Narwhal image generation.
 
@@ -1570,6 +1575,7 @@ class FlowApiClient:
                 project_id=resolved_project_id,
                 req=req,
                 recaptcha_action=recaptcha_action,
+                collection_id=collection_id,
             )
         except Exception as e:
             if _is_target_closed(e):
@@ -1583,6 +1589,7 @@ class FlowApiClient:
         req: GenerateImageRequest,
         count: int = 1,
         recaptcha_action: str = "imageGeneration",
+        collection_id: str | None = None,
     ) -> list[GeneratedImage]:
         """Generate ``count`` images using Flow's native count selector (1–4).
 
@@ -1615,6 +1622,7 @@ class FlowApiClient:
                 project_id=resolved_project_id,
                 req=req_with_count,
                 recaptcha_action=recaptcha_action,
+                collection_id=collection_id,
             )
         except Exception as e:
             if _is_target_closed(e):
@@ -1626,6 +1634,7 @@ class FlowApiClient:
         *,
         req: GenerateVideoRequest,
         project_id: str | None = None,
+        collection_id: str | None = None,
         out_dir: Path | None = None,
         poll_timeout_s: float = 600.0,
         download: bool = True,
@@ -1656,6 +1665,7 @@ class FlowApiClient:
             return await self.transport.generate_video(
                 request=req,
                 project_id=project_id,
+                collection_id=collection_id,
                 out_dir=out_dir,
                 poll_timeout_s=poll_timeout_s,
                 download=download,
